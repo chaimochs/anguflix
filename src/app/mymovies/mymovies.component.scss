@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+}
+
+.list-container {
+  flex: 3;
+  flex-grow: 3;
+}
+
+.movies-container {
+  cursor: pointer;
+}
+
+h1 {
+  color: white;
+}

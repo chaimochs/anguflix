@@ -1,0 +1,7 @@
+  <div class="list-container">
+    <h1 *ngIf= "!mymovies.length"> Select movies from below to add to your collection</h1>
+    <div class="movies-container" *ngFor="let movie of mymovies; let idx = index">
+      <app-movie [movie]="movie" (click)="remove(movie, idx)"></app-movie>
+    </div>
+  </div>
+

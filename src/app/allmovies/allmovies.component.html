@@ -1,0 +1,7 @@
+<div class="container">
+    <h1>ALL MOVIES</h1>
+    <input type="text" placeholder="Search by title..." />
+    <div class="movies-container" *ngFor="let movie of movies; let idx = index">
+      <app-movie [movie]="movie" (click)="buy(movie, idx)"></app-movie>
+    </div>
+  </div>
