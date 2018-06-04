@@ -1,17 +1,10 @@
-.container {
-  display: flex;
-}
 
-.search-container{
+.search{
   background-color: rgb(218, 85, 85);
-  height: 150px;
+  height: 250px;
   padding: 10px;
 }
 
-.list-container {
-  flex: 3;
-  flex-grow: 3;
-}
 
 h2 {
   color: white;
@@ -23,4 +16,13 @@ h2 {
   cursor: pointer;
   position: relative;
   left: 50%;
+}
+
+.big{
+  float: left;
+  text-align: center;
+  height: 443px;
+  width: 30%;
+  margin: 14px 1.666%;
+  overflow: hidden;
 }

@@ -1,13 +1,13 @@
-<div class="list-container">
-  <div class="search-container">
-    <app-search (searchChanged)="search($event)"></app-search>
-    <app-budget></app-budget>
-    <div>
-      <i class="fa fa-trash remove-icon" *ngIf="mymovies.length > 0" (click)="toggleRemovable()"></i>
-    </div>
-  </div>
+<div class="search">
+  <app-search *ngIf="mymovies.length > 0" (searchChanged)="search($event)"></app-search>
+  <app-budget></app-budget>
+
+<i class="fa fa-trash remove-icon" *ngIf="mymovies.length > 0" (click)="toggleRemovable()"></i>
+
   <h2 *ngIf="!mymovies.length"> Select movies from below to add to your collection</h2>
-  <div class="movies-container" *ngFor="let movie of mymovies | filter: searchText; let idx = index">
-    <app-movie [movie]=movie [removeButton]="removeButton" (removeFromMy)="remove($event)"></app-movie>
+
+  <div *ngFor="let movie of mymovies | filter: searchText; let idx = index">
+    <app-movie class="big" [movie]=movie [removeButton]="removeButton" (removeFromMy)="remove($event)"></app-movie>
   </div>
+
 </div>

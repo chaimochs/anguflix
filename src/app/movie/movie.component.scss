@@ -1,14 +1,20 @@
-
 img {
-    width: 300px;
-    height:250px;
+    width: 500px;
+    height:270px;
 
  }
 
  p {
-     width: 300px;
+     padding: 20px;
  }
 
  .remove-button{
      cursor: pointer;
  }
+
+
+.movie-card{
+    size: 30%;
+    float: left;
+    cursor: pointer;
+}

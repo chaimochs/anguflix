@@ -1,10 +1,12 @@
 <div>
-  ,<h4 *ngIf='budgetStatus.length > 0'>{{budgetStatus}} </h4>
-<h1>ALL MOVIES</h1>
-<app-search (searchChanged)="search($event)" ></app-search>
+  <h4 *ngIf='budgetStatus.length > 0'>{{budgetStatus}} </h4>
+  <h1>ALL MOVIES</h1>
+  <app-search (searchChanged)="search($event)"></app-search>
 </div>
-<div class="container" >
-    <div class="movies-container" >
-      <app-movie class="col-3" *ngFor="let movie of movies | filter : searchText let idx = index" [movie]="movie" (addToMy)="buy($event)">
-      </app-movie>
-    </div>
+
+
+  <div class="movies-container">
+    <app-movie class="big" *ngFor="let movie of movies | filter : searchText let idx = index" [movie]="movie" (addToMy)="buy($event)">
+    </app-movie>
+  </div>
+  <div style="clear:both"></div>
