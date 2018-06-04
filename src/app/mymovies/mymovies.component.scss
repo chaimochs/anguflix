@@ -1,10 +1,17 @@
-
-.search{
+.outer{
   background-color: rgb(218, 85, 85);
-  height: 250px;
-  padding: 10px;
+   overflow: auto;
 }
 
+.search{
+  height: 100px;
+  padding: 5px;
+  float: left;
+}
+
+.budget{
+  float: right;
+}
 
 h2 {
   color: white;
@@ -14,15 +21,18 @@ h2 {
   color: white;
   font-size: 5ex;
   cursor: pointer;
-  position: relative;
-  left: 50%;
+  float: left;
 }
 
-.big{
+.large{
   float: left;
   text-align: center;
-  height: 443px;
   width: 30%;
   margin: 14px 1.666%;
   overflow: hidden;
 }
+
+.select{
+  text-align: center;
+}
+
