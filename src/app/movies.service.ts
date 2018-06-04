@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie'
+import { BudgetComponent } from './budget/budget.component';
+import { User } from './user';
 
 const MOVIES = [
   {id:0,img:"http://static.comicvine.com/uploads/original/10/104544/4068923-tarzan-wallpaper-walt-disneys-tarzan-6248938-1024-768.jpg",title:"Tarzan", price:3, year:1999, descrShort:"The movie is about the life of Tarzan. Tarzan was a small orphan who was raised by an ape named Kala since he was a child. He believed that this was his family, but on an expedition Jane Porter is rescued by Tarzan."},
@@ -16,7 +18,11 @@ const MYMOVIES = [];
 
 export class MoviesService {
 
-  constructor() { }
+ myuser : User = new User();
+ 
+  constructor() { 
+    this.myuser.budget = 9;
+  }
 
   getMovies() : Movie[] {
     return MOVIES;
@@ -30,14 +36,22 @@ export class MoviesService {
     return this.getMovies().find((movie) => movie.id == id);
   }
 
-  moveMovie(movie: any, id: number) {
+  moveMovie(movie: Movie) {
     MYMOVIES.push(movie);
-    MOVIES.splice(id , 1);
    }
 
-   removeMovie(movie: any, idx: number) {
-    MYMOVIES.splice(idx, 1);
-    MOVIES.splice(movie.id, 0, movie);   
+   removeMovie(movie) {
+    let index = MYMOVIES.findIndex(m => m.id == movie.id);
+    MYMOVIES.splice(index, 1);
    }
+
+  addtoBudget(price: number){
+  this.myuser.budget += price;
+  }
+
+  subtractfromBudget(price: number){
+  this.myuser.budget -= price;
+  }
+
 
 }

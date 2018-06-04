@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service';
 import { Movie } from '../movie';
+import { timeout } from 'q';
 
 @Component({
   selector: 'app-allmovies',
@@ -9,20 +10,27 @@ import { Movie } from '../movie';
 })
 
 export class AllmoviesComponent {
- 
-  movies: Array<Movie> = new Array<Movie>();
-  mymovies: Array<Movie> = new Array<Movie>();
+  budgetStatus: string = '';
+  movies: Movie[];
+  searchText: string;
 
   constructor(private moviesService : MoviesService) { 
   this.movies = moviesService.getMovies();
-  this.mymovies = moviesService.getMyMovies();
 }
 
   ngOnInit() {
   }
   
-  buy(movie, idx){
-    this.moviesService.moveMovie(movie, idx);
+  search(letters: string) {
+    this.searchText = letters;
+  }
+   
+
+  buy(movie){
+    if(this.moviesService.myuser.budget >= movie.price){ 
+      this.moviesService.moveMovie(movie);
+      this.moviesService.subtractfromBudget(movie.price);
+    }
   }
 
 }

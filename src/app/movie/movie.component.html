@@ -1,7 +1,12 @@
-<div class="container">
+<div class="container" (click)="clickMovie(movie)">
   <div class="movie-card">
     <img class="movieImage" src="{{movie.img}}">
-    <h2>{{movie.title}}, {{movie.year}}</h2>
+  </div>
+  <div>
+    <button class="remove-button" *ngIf="removeButton == true" (click)="removeMovie(movie)">Remove</button>
+  </div>
+  <div>
+    <h4>{{movie.title}}, {{movie.year}}</h4>
     <p>{{movie.descrShort}} (${{movie.price}}.00)</p>
   </div>
 </div>

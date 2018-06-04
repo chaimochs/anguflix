@@ -2,15 +2,25 @@
   display: flex;
 }
 
+.search-container{
+  background-color: rgb(218, 85, 85);
+  height: 150px;
+  padding: 10px;
+}
+
 .list-container {
   flex: 3;
   flex-grow: 3;
 }
 
-.movies-container {
-  cursor: pointer;
+h2 {
+  color: white;
 }
 
-h1 {
+.fa-trash {
   color: white;
+  font-size: 5ex;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
 }

@@ -10,16 +10,29 @@ import { Movie } from '../movie';
 export class MymoviesComponent implements OnInit {
 
   mymovies: Array<Movie> = new Array<Movie>();
+  clicked: boolean = false;
+  removeButton: boolean;
+  searchText: string;
 
   constructor(private moviesService : MoviesService) { 
     this.mymovies = moviesService.getMyMovies();
   }
 
   ngOnInit() {
+   
+  }
+  
+  search(letters: string) {
+    this.searchText = letters;
   }
 
-remove(movie, idx){
-  this.moviesService.removeMovie(movie, idx);
-}
+remove(movie) {
+  this.moviesService.removeMovie(movie);
+  this.moviesService.addtoBudget(movie.price);
+  if(this.mymovies.length === 0){this.removeButton = false;}
+  }
 
+  toggleRemovable() {
+  this.removeButton = !this.removeButton;
+  }
 }

@@ -1,12 +1,14 @@
-.container{
-    display: flex;
-}
 
 img {
-    width: 400px;
+    width: 300px;
+    height:250px;
 
  }
 
  p {
-     width: 400px;
+     width: 300px;
+ }
+
+ .remove-button{
+     cursor: pointer;
  }

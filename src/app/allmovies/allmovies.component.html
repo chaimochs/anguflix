@@ -1,7 +1,10 @@
-<div class="container">
-    <h1>ALL MOVIES</h1>
-    <input type="text" placeholder="Search by title..." />
-    <div class="movies-container" *ngFor="let movie of movies; let idx = index">
-      <app-movie [movie]="movie" (click)="buy(movie, idx)"></app-movie>
+<div>
+  ,<h4 *ngIf='budgetStatus.length > 0'>{{budgetStatus}} </h4>
+<h1>ALL MOVIES</h1>
+<app-search (searchChanged)="search($event)" ></app-search>
+</div>
+<div class="container" >
+    <div class="movies-container" >
+      <app-movie class="col-3" *ngFor="let movie of movies | filter : searchText let idx = index" [movie]="movie" (addToMy)="buy($event)">
+      </app-movie>
     </div>
-  </div>
