@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service';
+import { UserService } from '../user.service';
 import { Movie } from '../movie';
 
 @Component({
@@ -14,8 +15,8 @@ export class MymoviesComponent implements OnInit {
   removeButton: boolean;
   searchText: string;
 
-  constructor(private moviesService : MoviesService) { 
-    this.mymovies = moviesService.getMyMovies();
+  constructor(private moviesService : MoviesService, private userService : UserService) { 
+    this.mymovies = this.userService.MYMOVIES;
   }
 
   ngOnInit() {
@@ -27,9 +28,12 @@ export class MymoviesComponent implements OnInit {
   }
 
 remove(movie) {
-  this.moviesService.removeMovie(movie);
-  this.moviesService.addtoBudget(movie.price);
-  if(this.mymovies.length === 0){this.removeButton = false;}
+  this.userService.removeMovie(movie);
+  if(this.userService.MYMOVIES.length === 0){this.removeButton = false;}
+  }
+
+  get budgetState() {
+    return this.userService.getBudgetState();
   }
 
   toggleRemovable() {

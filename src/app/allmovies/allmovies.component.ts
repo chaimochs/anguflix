@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service';
 import { Movie } from '../movie';
 import { timeout } from 'q';
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-allmovies',
@@ -14,8 +16,11 @@ export class AllmoviesComponent {
   movies: Movie[];
   searchText: string;
 
-  constructor(private moviesService : MoviesService) { 
-  this.movies = moviesService.getMovies();
+  constructor(private userService : UserService, private moviesService: MoviesService) { 
+
+  this.moviesService.getMovies().subscribe((data) => { 
+    this.movies = data;
+  });
 }
 
   ngOnInit() {
@@ -27,10 +32,7 @@ export class AllmoviesComponent {
    
 
   buy(movie){
-    if(this.moviesService.myuser.budget >= movie.price){ 
-      this.moviesService.moveMovie(movie);
-      this.moviesService.subtractfromBudget(movie.price);
-    }
+      this.userService.moveMovie(movie);
   }
 
 }

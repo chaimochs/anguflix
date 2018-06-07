@@ -1,10 +1,9 @@
 <div class="movie-card" (click)="clickMovie(movie)">
-    <img class="movieImage" src="{{movie.img}}">
+    <img class="movieImage" src="{{movie.imgUrl}}">
 
     <button class="remove-button" *ngIf="removeButton == true" (click)="removeMovie(movie)">Remove</button>
   
- 
     <h5>{{movie.title}}, {{movie.year}}</h5>
-    <p>{{movie.descrShort}} (${{movie.price}}.00)</p>
+    <p>{{movie.shortDescription}} (${{movie.price}}.00)</p>
 
 </div>

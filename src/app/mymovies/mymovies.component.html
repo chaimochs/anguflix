@@ -11,7 +11,8 @@
   <div class="trash">
     <i class="fa fa-trash remove-icon" *ngIf="mymovies.length > 0" (click)="toggleRemovable()"></i>
   </div>
-
+  
+  <h4 class="budget-state">{{budgetState}}</h4>
  
   <div class="large" *ngFor="let movie of mymovies | filter: searchText; let idx = index">
     <app-movie class="big" [movie]=movie [removeButton]="removeButton" (removeFromMy)="remove($event)"></app-movie>

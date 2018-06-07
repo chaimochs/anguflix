@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../movies.service';
+import { UserService } from '../user.service';
 import { User } from '../user';
 
 
@@ -13,8 +14,8 @@ import { User } from '../user';
   
      user : User = new User();
 
-  constructor(private moviesService : MoviesService) {
-    this.user = moviesService.myuser;
+  constructor(private moviesService : MoviesService, private userService : UserService) {
+    this.user = userService.myuser;
    }
 
   ngOnInit() {
